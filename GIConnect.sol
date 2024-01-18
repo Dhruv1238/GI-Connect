@@ -11,7 +11,7 @@ contract ProductNFT is ERC721, ReentrancyGuard, Ownable {
 
     struct Product {
         string name;
-        uint256 giTag;  // GI tag variable
+        string giTag;  // GI tag variable
         // Add any other relevant information about the product
     }
 
@@ -41,7 +41,7 @@ contract ProductNFT is ERC721, ReentrancyGuard, Ownable {
         uint256 quantity,
         string memory name,
         uint256 batchUid,
-        uint256[] memory giTags
+        string[] memory giTags
     ) public onlyOwner {
         uint256 start = _nextTokenId();
         batchData[batchUid].name = name;
