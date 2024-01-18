@@ -11,8 +11,8 @@ contract ProductNFT is ERC721, ReentrancyGuard, Ownable {
 
     struct Product {
         string name;
-        string giTag;  // GI tag variable
-        // Add any other relevant information about the product
+        string giTag;
+        // Scope to add any other relevant information about the product
     }
 
     struct Batch {
@@ -131,7 +131,7 @@ contract ProductNFT is ERC721, ReentrancyGuard, Ownable {
         escrow.beneficiaryWithdraw();
 
         Batch storage data = batchData[batchId];
-        address newOwner = msg.sender; // Assuming the caller is the new owner
+        address newOwner = msg.sender;
 
         for (uint256 i = data.startTokenId; i < data.endTokenId; i++) {
             safeTransferFrom(data.owner, newOwner, i);
